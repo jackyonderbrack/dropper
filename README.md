@@ -1,29 +1,32 @@
 # Dropper
 
+## Wersja 1.0.0
+
 Dropper to aplikacja backendowa napisana w Go, która serwuje aplikację frontendową zbudowaną przy użyciu Vite, React i TypeScript. Projekt ten obejmuje zarówno część klienta, jak i panel administracyjny.
+Stworzył - Michał Łuczak [ MILU CONNECT ]
 
 ## Struktura projektu
 
 ```
 dropper/
-├── backend/
-│   ├── src/
-│   │   ├── database/
-│   │   │   └── config.go
-│   │   └── main.go
-│   ├── docs/
-│   │   └── tutorial.md
-│   ├── bin/
-│   ├── .env
-│   ├── go.mod
-│   └── go.sum
+├── src/
+│   ├── database/
+│   │   └── config.go
+│   └── main.go
+│   docs/
+│   └── tutorial.md
 ├── client/
 │   ├── src/
 │   │   ├── App.tsx
 │   │   └── index.tsx
 │   ├── public/
-│   └── vite.config.ts
+│   ├── vite.config.ts
 |   └── dist/ (folder zbudowany przez Vite)
+├── bin/
+├── \\.env
+├── go.mod
+└── go.sum
+
 ```
 
 ## Wymagania
