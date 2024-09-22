@@ -28,13 +28,11 @@ func main() {
 	/*
 	Połączenie z bazą danych z pliku src/database/config.go
 	*/
-	db, err := database.ConnectDB()
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer db.Close()
+	database.ConnectDB()
 
-	// Ustawienie routera
+	/*
+	Stworzenie i włączenie routera
+	*/
 	r := mux.NewRouter()
 
 	// Testowanie trasy routera
@@ -42,7 +40,9 @@ func main() {
 		w.Write([]byte("Witaj w API!"))
 	})
 
-	// Uruchommy serwer
+	/*
+	Uruchamiamy serwer
+	*/
 	log.Printf("Serwer nasłuchuje na porcie: %s", apiPort)
 	log.Fatal(http.ListenAndServe(":"+apiPort, r))
 }
