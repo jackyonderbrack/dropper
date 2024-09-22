@@ -11,38 +11,35 @@ import (
 )
 
 func main() {
-	/*
-	Załaduj zmienne środowiskowe z pliku .env (opcjonalne) 
-	*/
-    err := godotenv.Load()
-    if err != nil {
-        log.Println("Nie udało się załadować pliku .env, używane są domyślne wartości")
-    }
+	// Załaduj zmienne środowiskowe z pliku .env
+	err := godotenv.Load()
+	if err != nil {
+		log.Println("Nie udało się załadować pliku .env, używane są domyślne wartości")
+	}
 
-    // Pobierz dane konfiguracyjne z pliku .env lub użyj domyślnych
-    apiPort := os.Getenv("API_PORT")
-    if apiPort == "" {
-        apiPort = "No port"
-    }
+	// Pobierz dane konfiguracyjne z pliku .env lub użyj domyślnych
+	apiPort := os.Getenv("API_PORT")
+	if apiPort == "" {
+		apiPort = "8080" // Domyślny port
+	}
 
-	/*
-	Połączenie z bazą danych z pliku src/database/config.go
-	*/
+	// Połączenie z bazą danych
 	database.ConnectDB()
 
-	/*
-	Stworzenie i włączenie routera
-	*/
+	// Stworzenie routera
 	r := mux.NewRouter()
 
-	// Testowanie trasy routera
-	r.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("Witaj w API!"))
+	// Serwowanie plików statycznych
+	// Gdybyśmy zostawili wyżej HandleFunc ze ścieżką ("/") to ówczesna
+	// ścieżka nie zostałaby już uwzględniona.
+	r.PathPrefix("/").Handler(http.StripPrefix("/", http.FileServer(http.Dir("./client/dist"))))
+
+	// Obsługa React Router (przekierowanie do index.html dla każdej nieznanej trasy)
+	r.NotFoundHandler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, "./client/dist/index.html")
 	})
 
-	/*
-	Uruchamiamy serwer
-	*/
+	// Uruchamiamy serwer
 	log.Printf("Serwer nasłuchuje na porcie: %s", apiPort)
 	log.Fatal(http.ListenAndServe(":"+apiPort, r))
 }
