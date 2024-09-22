@@ -1,4 +1,8 @@
 import { Form, Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
+import Sidenav from "./admin/components/Sidenav/Sidenav";
+import Login from "./admin/pages/login/Login";
+import PrivateRoute from "./admin/components/PrivateRoute/PrivateRoute";
+import { AccessProvider } from "./admin/contexts/AccessContext";
 
 // function Layout() {
 // 	const location = useLocation();
@@ -36,41 +40,41 @@ function AdminLayout() {
 }
 
 const router = createBrowserRouter([
+	// {
+	// 	path: "/",
+	// 	element: <Layout />, // Główny layout aplikacji
+	// 	children: [
+	// 		{ index: true, element: <HomePage /> },
+	// 		{ path: "rozwiazania", element: <SolutionsPage /> },
+	// 		{ path: "kontakt", element: <ContactPage /> },
+	// 		{ path: "wyslano", element: <ContactPageSent /> },
+	// 		{ path: "polityka-prywatnosci", element: <PrivacyPolicyPage /> },
+	// 		{ path: "nowosci", element: <NewsPage /> },
+	// 	],
+	// },
 	{
-		path: "/",
-		element: <Layout />, // Główny layout aplikacji
-		children: [
-			{ index: true, element: <HomePage /> },
-			{ path: "rozwiazania", element: <SolutionsPage /> },
-			{ path: "kontakt", element: <ContactPage /> },
-			{ path: "wyslano", element: <ContactPageSent /> },
-			{ path: "polityka-prywatnosci", element: <PrivacyPolicyPage /> },
-			{ path: "nowosci", element: <NewsPage /> },
-		],
-	},
-	{
-		path: "/admin-login",
+		path: "/login",
 		element: <Login />,
 	},
 	{
-		path: "/admin-panel",
+		path: "/admin",
 		element: <PrivateRoute />,
 		children: [
 			{
 				element: <AdminLayout />,
 				children: [
-					{ index: true, element: <Dashboard /> },
-					{ path: "posts", element: <Posts /> },
-					{ path: "users", element: <Users /> },
-					{ path: "reports", element: <Reports /> },
-					{ path: "settings", element: <Settings /> },
-					{ path: "account", element: <Account /> },
+					// { index: true, element: <Dashboard /> },
+					// { path: "posts", element: <Posts /> },
+					// { path: "users", element: <Users /> },
+					// { path: "reports", element: <Reports /> },
+					// { path: "settings", element: <Settings /> },
+					// { path: "account", element: <Account /> },
 					{ path: ":type/new", element: <Form /> },
 				],
 			},
 		],
 	},
-	{ path: "*", element: <NotFoundPage /> }, // Dla nieznanych ścieżek
+	// { path: "*", element: <NotFoundPage /> }, // Dla nieznanych ścieżek
 ]);
 
 function App() {

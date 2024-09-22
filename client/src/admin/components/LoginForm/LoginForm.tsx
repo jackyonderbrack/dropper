@@ -17,7 +17,7 @@ const LoginForm = () => {
 			});
 			setSubmitSuccessStatus("Zalogowano pomyślnie!");
 			setSubmitErrorStatus("");
-			navigate("/panel");
+			navigate("/admin");
 		} catch (err: any) {
 			if (err.response && err.response.status === 401) {
 				setSubmitErrorStatus("Nieprawidłowy email lub hasło");

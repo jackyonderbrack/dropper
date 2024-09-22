@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import "./sidenav.css";
+import "./Sidenav.css";
 import { useEffect, useRef, useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 
