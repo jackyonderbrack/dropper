@@ -1,64 +1,42 @@
 package database
 
 import (
-	"database/sql"
+	"backend/src/models"
 	"fmt"
 	"log"
 	"os"
 
-	_ "github.com/go-sql-driver/mysql"
-	"github.com/joho/godotenv"
+	"gorm.io/driver/mysql"
+	"gorm.io/gorm"
 )
 
-// ConnectDB - funkcja nawiązująca połączenie z bazą danych
-func ConnectDB() (*sql.DB, error) {
-    // Załaduj zmienne środowiskowe z pliku .env (opcjonalne)
-    err := godotenv.Load()
-    if err != nil {
-        log.Println("Nie udało się załadować pliku .env, używane są domyślne wartości")
-    }
+// DB - Globalna zmienna dla instancji bazy danych
+var DB *gorm.DB
 
-    // Pobierz dane konfiguracyjne z pliku .env lub użyj domyślnych
-    dbUser := os.Getenv("DB_USER")
-    if dbUser == "" {
-        dbUser = "No user"
-    }
+// ConnectDB - Funkcja do nawiązywania połączenia z bazą danych
+func ConnectDB() {
+	// Pobieranie zmiennych środowiskowych
+	dbUser := os.Getenv("DB_USER")
+	dbPassword := os.Getenv("DB_PASSWORD")
+	dbHost := os.Getenv("DB_HOST")
+	dbPort := os.Getenv("DB_PORT")
+	dbName := os.Getenv("DB_NAME")
 
-    dbPassword := os.Getenv("DB_PASSWORD")
-    if dbPassword == "" {
-        dbPassword = "No password"
-    }
+	// Tworzenie DSN (Data Source Name)
+	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local",
+		dbUser, dbPassword, dbHost, dbPort, dbName)
 
-    dbHost := os.Getenv("DB_HOST")
-    if dbHost == "" {
-        dbHost = "localhost"
-    }
+	// Nawiązywanie połączenia z bazą danych
+	var err error
+	DB, err = gorm.Open(mysql.Open(dsn), &gorm.Config{})
+	if err != nil {
+		log.Fatal("Nie udało się połączyć z bazą danych:", err)
+	}
 
-    dbPort := os.Getenv("DB_PORT")
-    if dbPort == "" {
-        dbPort = "3306"
-    }
+	err = DB.AutoMigrate(&models.User{})
+	if err != nil {
+		log.Fatal("Nie udało się wykonać migracji:", err)
+	}
 
-    dbName := os.Getenv("DB_NAME")
-    if dbName == "" {
-        dbName = "dropper"
-    }
-
-    // Utwórz string połączenia
-    dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s", dbUser, dbPassword, dbHost, dbPort, dbName)
-
-    // Nawiąż połączenie z bazą danych
-    db, err := sql.Open("mysql", dsn)
-    if err != nil {
-        return nil, err
-    }
-
-    // Sprawdź połączenie
-    err = db.Ping()
-    if err != nil {
-        return nil, err
-    }
-
-    log.Println("Połączono z bazą danych!")
-    return db, nil
+	log.Println("Połączono z bazą danych!")
 }

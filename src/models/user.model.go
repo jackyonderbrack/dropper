@@ -5,27 +5,29 @@ import (
 )
 
 type User struct {
-	ID          int        `json:"id"`
-	Name        string     `json:"name"`
-	Email       string     `json:"email"`
-	Password    string     `json:"-"`          // Password będzie zahashowane, nie zwracaj go w odpowiedziach
-	IsAdmin     bool       `json:"is_admin"`
-	Company     *Company   `json:"company"`    // Opcjonalne pole z danymi firmy (null jeśli brak)
-	Address     *Address   `json:"address"`    // Opcjonalne pole z adresem (null jeśli brak)
-	CreatedAt   time.Time  `json:"created_at"`
-	UpdatedAt   time.Time  `json:"updated_at"`
+	ID          uint      `gorm:"primaryKey"`
+	Name        string    `gorm:"size:255;not null"`
+	Email       string    `gorm:"size:255;unique;not null"`
+	Password    string    `gorm:"size:255;not null"`
+	IsAdmin     bool      `gorm:"default:false"`
+	Company 	Company   `gorm:"embedded"`
+	NIP         string    `gorm:"size:255"`
+	Address     Address   `gorm:"embedded"`
+	CreatedAt   time.Time
+	UpdatedAt   time.Time
+
 }
 
 // Model dla danych firmy (opcjonalne)
 type Company struct {
-	Name string `json:"name"`
-	NIP  string `json:"nip"`
+	Name string `gorm:"size:255"`
+	NIP  string `gorm:"size:100"`
 }
 
 // Model dla adresu (opcjonalne)
 type Address struct {
-	Street  string `json:"street"`
-	City    string `json:"city"`
-	ZipCode string `json:"zip_code"`
-	Country string `json:"country"`
+	Street  string `gorm:"size:255"`
+	City    string `gorm:"size:100"`
+	ZipCode string `gorm:"size:50"`
+	Country string `gorm:"size:100"`
 }
