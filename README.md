@@ -34,7 +34,7 @@ dropper/
 Aby uruchomić ten projekt, będziesz potrzebować:
 
 -   Go 1.18 lub nowszy
--   Node.js 20+ i npm (do budowy aplikacji Vite)
+-   Node.js 20+ i npm (do budowy aplikacji Vite) # lub yarn
 -   MySQL
 -   Git
 
@@ -87,14 +87,14 @@ go run src/main.go
 
 ### Frontend (Vite):
 
-Po zbudowaniu aplikacji, frontend zostanie serwowany przez backend. Możesz uzyskać dostęp do aplikacji w przeglądarce pod adresem `http://localhost:8080`.
+Po zbudowaniu aplikacji, frontend zostanie serwowany przez backend. Możesz uzyskać dostęp do aplikacji w przeglądarce pod adresem `http://localhost:<PORT>`.
 
 ## Testowanie
 
 Aby przetestować aplikację lokalnie:
 
 1. Uruchom serwer backendowy.
-2. Otwórz przeglądarkę i przejdź do `http://localhost:8080`, aby zobaczyć aplikację frontendową.
+2. Otwórz przeglądarkę i przejdź do `http://localhost:<PORT>`, aby zobaczyć aplikację frontendową.
 
 ## Kontrybucja
 
