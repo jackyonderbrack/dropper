@@ -15,7 +15,6 @@ type User struct {
 	Address     Address   `gorm:"embedded"`
 	CreatedAt   time.Time
 	UpdatedAt   time.Time
-
 }
 
 // Model dla danych firmy (opcjonalne)
