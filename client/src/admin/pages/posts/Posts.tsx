@@ -34,7 +34,7 @@ const Posts = () => {
 			<Header title='Wpisy' />
 			<div className='button-wrapper'>
 				<Button
-					linkTo={'/admin-panel/post/new'}
+					linkTo={'/admin/post/new'}
 					buttonText={'+ Nowy wpis'}
 					theme={'btn-primary'}
 				/>

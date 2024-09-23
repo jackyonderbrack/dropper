@@ -62,11 +62,11 @@ const Form: React.FC = () => {
 		try {
 			if (type === 'user') {
 				await addUser(formData as unknown as NewUser);
-				navigate('/admin-panel/users');
+				navigate('/admin/users');
 			}
 			if (type === 'post') {
 				await addPost(formData as unknown as Post);
-				navigate('/admin-panel/posts');
+				navigate('/admin/posts');
 			}
 		} catch (error) {
 			setError('Nie udało się dodać użytkownika');

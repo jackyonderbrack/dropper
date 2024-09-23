@@ -40,32 +40,32 @@ const Sidenav = () => {
 				<div className='sidenav-header'>Admin Panel</div>
 				<ul className='sidenav-menu' onClick={toggleMobileNav}>
 					<li className='sidenav-item'>
-						<NavLink to='/admin-panel' className={getLinkClass} end>
+						<NavLink to='/admin' className={getLinkClass} end>
 							Dashboard
 						</NavLink>
 					</li>
 					<li className='sidenav-item'>
-						<NavLink to='/admin-panel/posts' className={getLinkClass}>
+						<NavLink to='/admin/posts' className={getLinkClass}>
 							Wpisy
 						</NavLink>
 					</li>
 					<li className='sidenav-item'>
-						<NavLink to='/admin-panel/users' className={getLinkClass}>
+						<NavLink to='/admin/users' className={getLinkClass}>
 							Użytkownicy
 						</NavLink>
 					</li>
 					<li className='sidenav-item'>
-						<NavLink to='/admin-panel/reports' className={getLinkClass}>
+						<NavLink to='/admin/reports' className={getLinkClass}>
 							Raporty
 						</NavLink>
 					</li>
 					<li className='sidenav-item'>
-						<NavLink to='/admin-panel/settings' className={getLinkClass}>
+						<NavLink to='/admin/settings' className={getLinkClass}>
 							Ustawienia
 						</NavLink>
 					</li>
 					<li className='sidenav-item'>
-						<NavLink to='/admin-panel/account' className={getLinkClass}>
+						<NavLink to='/admin/account' className={getLinkClass}>
 							Konto
 						</NavLink>
 					</li>

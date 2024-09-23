@@ -8,7 +8,7 @@ const Account = () => {
 	const handleLogout = () => {
 		try {
 			localStorage.removeItem('TOKEN');
-			navigate('/admin-login');
+			navigate('/login');
 		} catch (err) {
 			console.error('Nie udało się wylogować', err);
 			setError('Nie udało się wylogować');

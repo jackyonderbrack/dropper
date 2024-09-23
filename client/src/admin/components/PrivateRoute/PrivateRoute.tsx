@@ -8,7 +8,7 @@ const PrivateRoute: React.FC = () => {
 	if (local) {
 		return <Outlet />;
 	} else {
-		return token ? <Outlet /> : <Navigate to='/admin-login' />;
+		return token ? <Outlet /> : <Navigate to='/login' />;
 	}
 };
 

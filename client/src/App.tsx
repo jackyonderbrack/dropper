@@ -64,11 +64,11 @@ const router = createBrowserRouter([
 		],
 	},
 	{
-		path: "/admin-login",
+		path: "/login",
 		element: <Login />,
 	},
 	{
-		path: "/admin-panel",
+		path: "/admin",
 		element: <PrivateRoute />,
 		children: [
 			{

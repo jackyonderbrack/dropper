@@ -49,7 +49,7 @@ const Users = () => {
 			<Header title='Użytkownicy' />
 			<div className='button-wrapper'>
 				<Button
-					linkTo={'/admin-panel/user/new'}
+					linkTo={'/admin/user/new'}
 					buttonText={'+ Dodaj użytkownika'}
 					theme={'btn-primary'}
 				/>
