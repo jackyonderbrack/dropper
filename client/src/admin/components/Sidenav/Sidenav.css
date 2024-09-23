@@ -61,7 +61,7 @@
 	color: black;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 560px) {
 	.sidenav {
 		display: none;
 		position: fixed;
