@@ -1,0 +1,24 @@
+#ImageText {
+	.image-wrapper {
+		padding: 1rem 1.5rem;
+		text-align: center;
+		img {
+			width: 200px;
+			padding: 1rem;
+			box-shadow: var(--shadowdark);
+			backdrop-filter: blur(2px);
+			border-radius: var(--radius-md);
+		}
+		:hover {
+			scale: 1.05;
+			rotate: 2deg;
+			transition: var(--transition);
+		}
+	}
+	.content-wrapper {
+		display: block;
+		width: 100%;
+		padding: 1rem 2rem;
+		text-align: left;
+	}
+}

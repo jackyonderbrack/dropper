@@ -1,6 +1,6 @@
 export const authService = {
 	getToken: () => {
-		const token = localStorage.getItem("TOKEN");
+		const token = localStorage.getItem('TOKEN');
 		return token;
 	},
 

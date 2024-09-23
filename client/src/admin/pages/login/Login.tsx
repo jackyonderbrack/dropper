@@ -1,8 +1,8 @@
-import LoginForm from "../../components/LoginForm/LoginForm";
+import LoginForm from '../../components/LoginForm/LoginForm';
 
 const Login = () => {
 	return (
-		<section className="text-align-center">
+		<section className='text-align-center'>
 			<LoginForm />
 		</section>
 	);

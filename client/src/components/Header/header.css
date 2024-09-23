@@ -1,0 +1,35 @@
+@keyframes slide-up {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+#Header {
+	position: relative;
+	min-height: 50vh;
+	display: flex;
+	align-items: center;
+}
+
+.headerContent {
+	margin-left: calc(2rem + 1dvw);
+	margin-top: -1rem;
+}
+
+.headerPicture {
+	filter: grayscale(1);
+	filter: sepia(0.3);
+	filter: opacity(0.81);
+	position: absolute;
+	animation: slide-up 3.5s forwards;
+	right: 0;
+	z-index: -1;
+	width: 80%;
+}
+
+.header-section.without-image {
+	min-height: 100px !important;
+}
