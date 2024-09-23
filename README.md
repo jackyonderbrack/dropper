@@ -12,17 +12,16 @@ dropper/
 ├── src/
 │   ├── database/
 │   │   └── config.go
-│   └── main.go
-│   docs/
+│   ├── models/
+│   │   └── user.model.go
+│   ├── utils/
+│   │   └── hash.go
+│   ├── docs/
 │   └── tutorial.md
 ├── client/
 │   ├── src/
-│   │   ├── App.tsx
-│   │   └── index.tsx
-│   ├── public/
-│   ├── vite.config.ts
-|   └── dist/ (folder zbudowany przez Vite)
-├── bin/
+│   │   └── **
+│   └── dist/ (folder zbudowany przez Vite)
 ├── \\.env
 ├── go.mod
 └── go.sum

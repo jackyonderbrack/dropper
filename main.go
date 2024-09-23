@@ -1,6 +1,8 @@
 package main
 
 import (
+	"backend/src/database"
+	"backend/src/routes"
 	"log"
 	"net/http"
 	"os"
@@ -22,8 +24,13 @@ func main() {
 		apiPort = "8080" // Domyślny port
 	}
 
+	// Połączenie z bazą danych
+	database.ConnectDB()
+
 	// Stworzenie routera
 	r := mux.NewRouter()
+
+	routes.RegisterUserRoutes(r, database.DB)
 
 	// Serwowanie plików statycznych - obsługuje pliki w ./client/dist
 	fs := http.FileServer(http.Dir("./client/dist"))
