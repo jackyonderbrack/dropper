@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://bagins.pl/</loc>
+    <loc>https://example.pl/</loc>
     <lastmod>2024-07-23</lastmod>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://bagins.pl/rozwiazania</loc>
+    <loc>https://example.pl/rozwiazania</loc>
     <lastmod>2024-07-23</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://bagins.pl/kontakt</loc>
+    <loc>https://example.pl/kontakt</loc>
     <lastmod>2024-07-23</lastmod>
     <priority>0.64</priority>
   </url>

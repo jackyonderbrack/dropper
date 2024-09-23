@@ -1,4 +1,4 @@
-# Dropper
+# Dropper - sklep Example
 
 ## Wersja 1.0.0
 

@@ -6,4 +6,4 @@ Allow: /public/
 Allow: /rozwiazania/
 Allow: /
 
-Sitemap: https://bagins.pl/sitemap.xml
+Sitemap: https://example.pl/sitemap.xml

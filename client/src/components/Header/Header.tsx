@@ -1,12 +1,12 @@
-import { useRef, useEffect } from 'react';
-import './header.css';
+import { useRef, useEffect } from "react";
+import "./header.css";
 type HeaderProps = {
 	content: React.ReactNode;
 	imgUrl?: string;
-	align: 'start' | 'center' | 'end';
+	align: "start" | "center" | "end";
 };
 
-const Header: React.FC<HeaderProps> = ({ imgUrl, content, align = 'left' }) => {
+const Header: React.FC<HeaderProps> = ({ imgUrl, content, align = "left" }) => {
 	const parallaxRef = useRef<HTMLImageElement>(null);
 
 	useEffect(() => {
@@ -19,27 +19,17 @@ const Header: React.FC<HeaderProps> = ({ imgUrl, content, align = 'left' }) => {
 			}
 		};
 
-		window.addEventListener('scroll', handleScroll);
+		window.addEventListener("scroll", handleScroll);
 
 		return () => {
-			window.removeEventListener('scroll', handleScroll);
+			window.removeEventListener("scroll", handleScroll);
 		};
 	}, []);
 
 	return (
-		<section
-			id='Header'
-			className={`header-section ${imgUrl ? '' : 'without-image'} justify-content-${align}`}
-		>
-			<div className='headerContent'>{content}</div>
-			{imgUrl && (
-				<img
-					src={imgUrl}
-					alt='MILU Connect Zdjęcie główne'
-					ref={parallaxRef}
-					className='headerPicture'
-				/>
-			)}
+		<section id="Header" className={`header-section ${imgUrl ? "" : "without-image"} justify-content-${align}`}>
+			<div className="headerContent">{content}</div>
+			{imgUrl && <img src={imgUrl} alt="Example Zdjęcie główne" ref={parallaxRef} className="headerPicture" />}
 		</section>
 	);
 };
