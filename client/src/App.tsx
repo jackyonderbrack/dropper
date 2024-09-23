@@ -7,7 +7,7 @@ import Footer from "./components/Footer/Footer";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import SolutionsPage from "./pages/SolutionsPage/SolutionsPage";
 import { ScrollToTop } from "./utils/ScrollToTop";
-import TrackPageView from "./components/GoogleAnalytics/TrackPageView";
+// import TrackPageView from "./components/GoogleAnalytics/TrackPageView";
 // import CustomCookieConsent from "./components/CustomCookieConsent/CustomCookieConsent";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage/PrivacyPolicyPage";
 import ContactPageSent from "./pages/ContactPage/ContactPageSent";
